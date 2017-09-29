@@ -11,7 +11,9 @@ def index():
 @app.route("/temperature", methods = ['POST'])
 def temperature():
 	city = request.form['city']
-	return city
+	r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + ',&appid=49f75f46bfbc60e9a7edf7760cc11716')
+	result = r.json()
+	return str(result)
 	#return render_template('temperature.html')
 
 
