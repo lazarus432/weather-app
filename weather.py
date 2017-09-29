@@ -8,9 +8,11 @@ def index():
 	return render_template("index.html")
 
 
-@app.route("/temperature")
+@app.route("/temperature", methods = ['POST'])
 def temperature():
-	return render_template('temperature.html')
+	city = request.form['city']
+	return city
+	#return render_template('temperature.html')
 
 
 
